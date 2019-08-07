@@ -1,0 +1,19 @@
+ <!-- MENU SIDEBAR-->
+ <aside class="menu-sidebar d-none d-lg-block">
+  <div class="logo">
+      <a href="#">
+          <img src="assets/img/icon/logo.png" alt="Cool Admin" />
+      </a>
+  </div>
+  <div class="menu-sidebar__content">
+      <nav class="navbar-sidebar">
+          <ul class="list-group" *ngFor="let menu of menus" >
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div class="btn.outline-secondary"> <a [routerLink]="menu.link">
+                      <i class="fa fa-address-book"></i> {{menu.name}}</a> </div>
+              </li>
+          </ul>
+      </nav>
+  </div>
+</aside>
+
