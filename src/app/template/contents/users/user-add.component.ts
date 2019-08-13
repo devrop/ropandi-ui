@@ -18,7 +18,8 @@ import { EncrDecrService } from 'src/app/security/encr-decr.service';
   styleUrls: ['../../template.component.css']
 })
 export class UserAddComponent implements OnInit {
-
+  loading = false;
+  menuName = 'User Add';
   user = {
     id: null,
     username: null,
@@ -220,11 +221,11 @@ defaultRole(){
 
 onSumbitUser(){
   //get key
+  this.loading = true;
   const keys = sessionStorage.getItem('keys');
   let decrytedKey = this.encript.decryptData(keys);
   //encrypt password
   let passwordEnc = this.encript.enCrypPassword(decrytedKey,this.user.password);
-  console.log('password ' + passwordEnc);
   //let passwordEnc = this.encript.encryptData(this.user.password);
   let body = JSON.stringify({
     id : this.user.id,
@@ -238,11 +239,11 @@ onSumbitUser(){
    (data:string) => {
      let obj = UtilityService.convertStringToJSON(data);
       if(obj.status ===200 || obj.status ==='200'){
-        //this.loading = false;
+        this.loading = false;
         SwalUtil.AlertSucces();
         this.router.navigate(['contents/users']);
       }else {
-       //this.loading = false;
+       this.loading = false;
        SwalUtil.AlertError();
       }
    },

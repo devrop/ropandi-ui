@@ -18,6 +18,7 @@ import { EncrDecrService } from 'src/app/security/encr-decr.service';
   styleUrls: ['../../template.component.css']
 })
 export class UserEditComponent implements OnInit {
+  loading = false;
   menuName ='Edit Menu'
   idParam;
   user = {
@@ -242,6 +243,7 @@ defaultRole(){
 }
 
 onSumbitUser(){
+  this.loading = true;
   const keys = sessionStorage.getItem('keys');
   let decrytedKey = this.encript.decryptData(keys);
   //encrypt password
@@ -259,16 +261,16 @@ onSumbitUser(){
    (data:string) => {
      let obj = UtilityService.convertStringToJSON(data);
       if(obj.status ===200 || obj.status ==='200'){
-        //this.loading = false;
+        this.loading = false;
         SwalUtil.AlertSucces();
         this.router.navigate(['contents/users']);
       }else {
-       //this.loading = false;
+       this.loading = false;
        SwalUtil.AlertError();
       }
    },
    (err) => {
-
+    this.loading = false;
    }
   )
 

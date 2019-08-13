@@ -11,7 +11,7 @@ import { SwalUtil } from 'src/app/swal-util';
   styleUrls: ['../../template.component.css']
 })
 export class MenuAddComponent implements OnInit {
-
+  menuName = 'Add Menu';
   loading = false;
   model = {
     menuName: null,
