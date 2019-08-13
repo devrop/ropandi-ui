@@ -1186,6 +1186,7 @@ section {
 
 .header-desktop .section__content {
     overflow: visible;
+    
     position: absolute;
     top: 50%;
     left: 0;
@@ -4497,6 +4498,7 @@ section {
 }
 
 .table-data2.table tbody tr td:first-child {
+    color: #d9d9d9;
     -webkit-border-top-left-radius: 3px;
     -moz-border-radius-topleft: 3px;
     border-top-left-radius: 3px;

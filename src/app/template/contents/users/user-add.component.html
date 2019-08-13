@@ -1,3 +1,236 @@
-<p>
-  user-add works!
-</p>
+<div class="col-lg-9">
+    
+<div class="card">
+    <div class="backdrop" [ngStyle]="{'display':displayRole}"></div>
+    <div class="backdrop" [ngStyle]="{'display':displayMenu}"></div>
+  <div class="card-header">
+      <strong>{{menuName}}</strong>
+  </div>
+  <div class="card-body card-block">
+      <form class="form-horizontal">
+          <div class="row form-group">
+              <div class="col col-md-3">
+                  <label for="name-user" class=" form-control-label">Id</label>
+              </div>
+              <div class="col-12 col-md-4">
+                  <input type="text"  id="id-user" name="id-user" placeholder="Auto generated" class="form-control" [disabled]="true">
+              </div>
+          </div>
+          <div class="row form-group">
+              <div class="col col-md-3">
+                  <label for="name-user" class=" form-control-label">Username</label>
+              </div>
+              <div class="col-12 col-md-4">
+                  <input type="text" [(ngModel)]="user.username" id="username-user" name="username-user" placeholder="Username" class="form-control">
+                  <small class="help-block form-text">Please insert username</small>
+              </div>
+          </div>
+         
+          <div class="row form-group">
+              <div class="col col-md-3">
+                  <label for="password-input" class=" form-control-label">Password</label>
+              </div>
+              <div class="col-12 col-md-4">
+                  <input type="password" id="password-user" [(ngModel)]="user.password" name="password-user" placeholder="Password" class="form-control">
+                  <small class="help-block form-text">Please insert password</small>
+              </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-sm-12">
+              ROLE
+         <!-- Menu Privilege-->
+         <div class="d-flex flex-row-reverse">
+            <div class="p-2"><button (click)="openModalDialogRole()" type="button" class="btn btn-success">
+                <i class="zmdi zmdi-plus"></i> Add New Role</button></div>
+          </div>
+         <div class="table-responsive m-b-40">
+            <table class="table table-borderless table-data3">
+                <thead>
+                    <tr>
+                      <th>No</th>
+                        <th>Id Role</th>
+                        <th>Role Name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr class="tr-shadow" *ngFor="let ur of userRoles; let i = index">
+                      <td>{{i}}</td>
+                        <td>{{ur.id_role}}</td>
+                        <td>
+                            <span class="block-email">{{ur.role_name}}</span>
+                        </td>
+                        <td>
+                            <div class="table-data-feature">
+                                
+                                <button class="item" data-toggle="tooltip" data-placement="top" title="Delete" (click)="onDeleteRole(ur.id_role)">
+                                    <i class="zmdi zmdi-delete"></i>
+                                </button>
+                                
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+         <!-- END Menu Role-->
+
+            </div>
+        </div>
+
+        <div class="row form-group">
+          <div class="col col-sm-12">
+              
+          </div>
+        </div>
+          <div class="row form-group">
+              <div class="col col-sm-12">
+                LIST MENU
+           <!-- Menu Privilege-->
+           <div class="d-flex flex-row-reverse">
+              <div class="p-2"><button (click)="openModalDialogMenu()" type="button" class="btn btn-success">
+                  <i class="zmdi zmdi-plus"></i> Add New Menu</button></div>
+            </div>
+           <div class="table-responsive table-responsive-data2">
+              <table class="table table-data2">
+                  <thead class="thead-dark">
+                      <tr>
+                        <th>No</th>
+                          <th>Menu Name</th>
+                          <th>Privilege</th>
+                          <th></th>
+                      </tr>
+                  </thead>
+                  <tbody >
+                      <tr class="tr-shadow" *ngFor="let mp of userMenuPrivilege; let i = index">
+                        <td>{{i}}</td>
+                          <td>{{mp.menu_name}}</td>
+                          <td>
+                              <span class="block-email">{{mp.privilege}}</span>
+                          </td>
+                          <td>
+                              <div class="table-data-feature">
+                                  
+                                  <button class="item" (click) ="onDeletePrivilegeMenu(mp.id_menu)" data-toggle="tooltip" data-placement="top" title="Delete">
+                                      <i class="zmdi zmdi-delete"></i>
+                                  </button>
+                                  
+                              </div>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+
+           <!-- END Menu Privileg-->
+
+              </div>
+          </div>
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary btn-sm" (click) ="onSumbitUser()">
+                <i class="fa fa-user"></i> Submit
+            </button>
+        </div>
+      </form>
+  </div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="modal"  role="dialog"  [ngStyle]="{'display':displayRole}">
+    <div class="modal-dialog" >
+      
+      <div class="modal-content">
+     
+        <div class="modal-header">
+          <button type="button" class="close" aria-label="Close" (click)="closeModalDialogRole()"><span aria-hidden="true">&times;</span></button>
+    
+        </div>
+    
+
+        <div class="modal-body">
+           <form (ngSubmit)="onSubmitRole()" enctype="multipart/form-data" class="form-horizontal">
+            <div class="row form-group">
+              <div class="col col-md-3">
+                <label for="select" class=" form-control-label">Menu</label>
+              </div>
+              <div class="col-12 col-md-9">
+                <select id="role-detail" class="form-control" [(ngModel)]="roleModel.idRole" name="model">
+                  <option *ngFor="let data of roles" [value]="data.id">{{data.role_name}}</option>
+                </select>
+              </div>
+            </div>
+    
+            <div class="card-footer">
+              <button [disabled]="loading" type="submit" class="btn btn-primary btn-sm">
+                <i class="fa fa-dot-circle-o"></i> Submit Role
+              </button>
+            </div>
+          </form>
+        </div>
+    
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" (click)="closeModalDialogRole()" >Close</button>
+        </div>
+      </div>
+    </div>
+    </div> 
+
+
+<!-- modal -->
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':displayMenu}">
+<!-- modal-dialog -->
+<div class="modal-dialog" >
+  <!-- modal-content -->
+  <div class="modal-content">
+    <!-- modal-header -->
+    <div class="modal-header">
+      <button type="button" class="close" aria-label="Close" (click)="closeModalDialogMenu()"><span aria-hidden="true">&times;</span></button>
+      <!-- <h4 class="modal-title">Login</h4> -->
+    </div>
+
+    <!-- modal-body -->
+    <div class="modal-body">
+       <form (ngSubmit)="onSubmitMenuPrivilege()" enctype="multipart/form-data" class="form-horizontal">
+        <div class="row form-group">
+          <div class="col col-md-3">
+            <label for="select" class=" form-control-label">Menu</label>
+          </div>
+          <div class="col-12 col-md-9">
+            <select id="menu-detail" class="form-control" [(ngModel)]="menuPrivilege.idMenu" name="menu-detail">
+              <option *ngFor="let data of menus" [value]="data.id">{{data.menu_name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-3">
+            <label for="select" class=" form-control-label">Can Edit</label>
+          </div>
+          <div class="col-12 col-md-9">
+            <select name="privilege-detail" [(ngModel)]="menuPrivilege.idPrivilege" class="form-control">
+              <option *ngFor="let p of privileges" [value]="p.id">{{p.privilege_name}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <button [disabled]="loading" type="submit" class="btn btn-primary btn-sm">
+            <i class="fa fa-dot-circle-o"></i> Submit Menu
+          </button>
+        </div>
+      </form>
+    </div>
+    <!-- modal-footer -->
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" (click)="closeModalDialogMenu()" >Close</button>
+    </div>
+  </div>
+</div>
+</div>

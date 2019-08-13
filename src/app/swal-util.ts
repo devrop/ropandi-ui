@@ -24,4 +24,14 @@ import Swal from 'sweetalert2';
         text: 'Something went wrong!',
       })
     }
+    static AlertDontHasPrivilege(){
+      Swal.fire({
+        position: 'center',
+        type: 'warning',
+        title: 'Oops...',
+        text: 'You dont have acces to this Menu!',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
   }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { UserEditComponent } from './user-edit.component';
+import { FormsModule } from '@angular/forms';
 const routes: Routes = [
 
   {
@@ -12,7 +13,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [UserEditComponent],
-  imports: [
+  imports: [FormsModule,
     CommonModule, RouterModule.forChild(routes)
   ]
 })

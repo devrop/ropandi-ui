@@ -1,3 +1,64 @@
-<p>
-  menus works!
-</p>
+<div class="section__content section__content--p30">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+          <h3 class="title-5 m-b-35">{{menuName}}</h3>
+          <div class="d-flex flex-row-reverse">
+              <div class="p-2"><button *ngIf="flagAdd" (click)="onAdd()" type="button" class="btn btn-success">
+                  <i class="zmdi zmdi-plus"></i> Add New Menu</button></div>
+            </div>
+            <div class="table-responsive m-b-40">
+                <table class="table table-borderless table-data3">
+                    <thead>
+                        <tr>
+                            <th>
+                              No
+                            </th>
+                            <th>Menu Name</th>
+                            <th>Link </th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tr-shadow" *ngFor="let m of menus; let i = index">
+                            <td>
+                              {{i + 1}}
+                            </td>
+                            <td>{{m.menu_name}}</td>
+                            <td>
+                              {{m.link}}
+                            </td>
+                            <td>{{m.status}}</td>
+                            <td>
+                                <div class="table-data-feature">
+                                    <button *ngIf="flagView" class="item" (click) ="onView(m.id)" data-toggle="tooltip" data-placement="top" title="Lihat">
+                                        <i class="zmdi zmdi-eye"></i>
+                                    </button>
+                                    <button *ngIf="flagEdit" (click) ="onEdit(m.id)" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                        <i class="zmdi zmdi-edit"></i>
+                                    </button>
+                                    <button *ngIf="flagDelete" (click) = "onDelete(m.id)"class="item" data-toggle="tooltip" data-placement="top" title="Hapus">
+                                        <i class="zmdi zmdi-delete"></i>
+                                    </button>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+              <!-- END DATA TABLE -->
+          </div>
+          <div *ngIf="loading" class="col-md-12">
+              <p>Loading ...</p>
+          </div>
+
+      </div>
+
+      </div>
+      <!--end disini-->
+</div>
+
+

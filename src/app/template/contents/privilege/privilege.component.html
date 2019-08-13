@@ -49,15 +49,16 @@
                                 </td>
                                 <td>
                                     <div class="table-data-feature">
+                                            <button class="item" (click) ="onView(p.id)" data-toggle="tooltip" data-placement="top" title="View">
+                                                    <i class="zmdi zmdi-eye"></i>
+                                                </button>
                                         <button (click) ="onEdit(p.id)" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                             <i class="zmdi zmdi-edit"></i>
                                         </button>
                                         <button (click) = "onDelete(p.id)"class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                             <i class="zmdi zmdi-delete"></i>
                                         </button>
-                                        <button class="item" (click) ="onView(p.id)" data-toggle="tooltip" data-placement="top" title="View">
-                                            <i class="zmdi zmdi-more"></i>
-                                        </button>
+                                       
                                     </div>
                                 </td>
                             </tr>

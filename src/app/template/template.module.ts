@@ -11,6 +11,7 @@ import { UsersComponent } from './contents/users/users.component';
 import { MenusComponent } from './contents/menus/menus.component';
 import { StudentsComponent } from './contents/students/students.component';
 import { TeachersComponent } from './contents/teachers/teachers.component';
+import { RolesComponent } from './contents/roles/roles.component';
 const templatRoutes: Routes = [
   {
     path: '',
@@ -96,6 +97,22 @@ const templatRoutes: Routes = [
       {
         path: 'users\/view\/:id',
         loadChildren:'.\/contents\/users\/user-view.module#UserViewModule'
+      },
+      {
+        path: 'roles',
+        loadChildren:'.\/contents\/roles\/roles.module#RolesModule'
+      },
+      {
+        path: 'roles\/add',
+        loadChildren:'.\/contents\/roles\/role-add.module#RoleAddModule'
+      },
+      {
+        path: 'roles\/view\/:id',
+        loadChildren:'.\/contents\/roles\/role-view.module#RoleViewModule'
+      },
+      {
+        path: 'roles\/edit\/:id',
+        loadChildren:'.\/contents\/roles\/role-edit.module#RoleEditModule'
       },
       {
         path: '',

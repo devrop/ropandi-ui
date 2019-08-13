@@ -98,7 +98,7 @@ export class PrivilegeComponent implements OnInit {
             this.loadData();
            }else{
             Swal.fire(
-              'delete failed',
+              'Delete failed',
               'Something wrong. ',
              'error'
             );

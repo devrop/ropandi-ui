@@ -21,12 +21,46 @@ export class LoginComponent implements OnInit {
     private encrDecrService: EncrDecrService) { }
 
   ngOnInit() {
+    this.onGetKey();
+  }
+
+  onGetKey(){
+    this.authService.callGet().subscribe(
+      (data: string) => {
+        let metaData = JSON.stringify(data);
+        let obj = JSON.parse(metaData);
+        //console.log('status : ' + obj.status)
+        if(obj.status === 200){
+          let key = obj.message;
+          let enCrytedKey = this.encrDecrService.encryptData(key);
+          sessionStorage.setItem('keys',enCrytedKey);
+        }else if(obj.status === 404){
+          this.swallErrorPassword();
+         // swal.fire('Username atau Password yang dimasukkan salah');
+          this.loading = false;
+        }else {
+          this.swallErrorWebservice();
+          //swal.fire('Terjadi kesalahan di webservice');
+          this.loading = false;
+        }
+
+      }, (err) => {
+        this.swallErrorWebservice();
+       // swal.fire('Terjadi kesalahan di webservice');
+        console.log(err);
+        this.loading = false;
+    }
+    )
   }
 
   onLogin(){
+    const keys = sessionStorage.getItem('keys');
+    let decrytedKey = this.encrDecrService.decryptData(keys);
     this.loading = true;
-    //console.log(this.model.username +' '+this.model.password)
-    this.authService.callHttpSeverPost(this.model.username, this.model.password).subscribe(
+    let passwordenc = this.encrDecrService.enCrypPassword(decrytedKey,this.model.password);
+    //console.log(passwordenc);
+    //let decry = this.encrDecrService.decrypPassword(decrytedKey,passwordenc);
+    this.authService.callHttpSeverPost(this.model.username, passwordenc).subscribe(
       (data: string) => {
         let metaData = JSON.stringify(data);
         let obj = JSON.parse(metaData);

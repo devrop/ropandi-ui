@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuAddComponent } from './menu-add.component';
 import { Routes, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
 
@@ -14,7 +15,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [MenuAddComponent],
-  imports: [
+  imports: [FormsModule,
     CommonModule,RouterModule.forChild(routes)
   ]
 })

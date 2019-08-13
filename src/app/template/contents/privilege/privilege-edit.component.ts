@@ -22,7 +22,7 @@ export class PrivilegeEditComponent implements OnInit {
     flagView : null,
     flagDelete : null
   };
-
+  created
 
   selectedData = 'Select Item';
   name = 'ok';

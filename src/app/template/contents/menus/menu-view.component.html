@@ -1,3 +1,52 @@
-<p>
-  menu-view works!
-</p>
+<div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <div class="card">
+            <div class="card-header">
+                {{menuName}}
+            </div>
+            <div class="card-body card-block">
+                <form  enctype="multipart/form-data" class="form-horizontal">
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            <label for="text-input" class=" form-control-label">Menu Name</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            <input type="text" id="text-input" name="menu-name" [(ngModel)]="model.menuName" placeholder="Menu name" class="form-control" [disabled] ="true">
+                            </div>
+                    </div>
+                    <div class="row form-group">
+                      <div class="col col-md-3">
+                          <label for="text-input" class=" form-control-label">Link Menu</label>
+                      </div>
+                      <div class="col-12 col-md-9">
+                          <input type="text" id="text-input" name="menu-link" [(ngModel)]="model.menuLink" placeholder="Menu link" class="form-control" [disabled] ="true">
+                     
+                      </div>
+                  </div>
+      
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            <label class=" form-control-label">Status</label>
+                        </div>
+                        <div class="col col-md-9">
+                            <div class="form-check" >
+                                <div class="checkbox">
+                                    <label for="checkbox1" class="form-check-label ">
+                                        <input type="checkbox" id="checkbox1" [(ngModel)]="model.status" name="aktif" value="1" class="form-check-input" [disabled] ="true"> Active
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                  </div>
+                </form>
+            </div>
+      
+      </div>
+    </div>
+  </div>
+  </div>
+  

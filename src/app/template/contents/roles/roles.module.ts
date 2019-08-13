@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RolesComponent } from './roles.component';
 import { Routes, RouterModule } from '@angular/router';
-import { UserAddComponent } from './user-add.component';
-import { FormsModule } from '@angular/forms';
+
 const routes: Routes = [
 
   {
     path: '',
-    component: UserAddComponent
+    component: RolesComponent
 }
 ];
+
+
 @NgModule({
-  declarations: [UserAddComponent],
-  imports: [FormsModule,
+  declarations: [RolesComponent],
+  imports: [
     CommonModule, RouterModule.forChild(routes)
   ]
 })
-export class UserAddModule { }
+export class RolesModule { }

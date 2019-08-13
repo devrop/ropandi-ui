@@ -1,24 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { MenusService } from './service/menus.service';
+import { RoleService } from './service/role.service';
 import { Router } from '@angular/router';
-import { ModelMenu } from './menus.component';
+import { RoleModel } from './roles.component';
 import { UtilityService } from 'src/app/utility.service';
 import { SwalUtil } from 'src/app/swal-util';
 
 @Component({
-  selector: 'app-menu-add',
-  templateUrl: './menu-add.component.html',
+  selector: 'app-role-add',
+  templateUrl: './role-add.component.html',
   styleUrls: ['../../template.component.css']
 })
-export class MenuAddComponent implements OnInit {
-
+export class RoleAddComponent implements OnInit {
+  menuName = 'Add Role';
   loading = false;
   model = {
-    menuName: null,
-    menuLink: null,
-    status: null
+    roleName: null
   }
-  constructor(private menuService: MenusService,
+  constructor(private roleService: RoleService,
     private router: Router) { }
 
   ngOnInit() {
@@ -26,15 +24,15 @@ export class MenuAddComponent implements OnInit {
 
   onSubmit(){
     this.loading = true;
-    let statusFinal = this.converToNumber(this.model.status);
-    let request = new ModelMenu('save', this.model.menuName, this.model.menuLink,statusFinal);
-    this.menuService.savePrivilege(request).subscribe(
+    //let statusFinal = this.converToNumber(this.model.status);
+    let request = new RoleModel('save', this.model.roleName);
+    this.roleService.savePrivilege(request).subscribe(
       (data:string) => {
         let obj = UtilityService.convertStringToJSON(data);
          if(obj.status ===200 || obj.status ==='200'){
            this.loading = false;
            SwalUtil.AlertSucces();
-           this.router.navigate(['contents/menus']);
+           this.router.navigate(['contents/roles']);
          }else {
           this.loading = false;
           SwalUtil.AlertError();
@@ -48,11 +46,5 @@ export class MenuAddComponent implements OnInit {
     )
 
   }
-  converToNumber(data : boolean){
-  if(data){
-    return '1';
-  }else {
-    return '0';
-  }
-  }
+
 }

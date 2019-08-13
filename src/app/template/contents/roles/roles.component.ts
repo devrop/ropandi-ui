@@ -1,46 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
-import { MenusService } from './service/menus.service';
+import { RoleService } from './service/role.service';
 import { Router } from '@angular/router';
-import { UtilityService } from 'src/app/utility.service';
-const menu='Menu';
+import Swal from 'sweetalert2';
+
 @Component({
-  selector: 'app-menus',
-  templateUrl: './menus.component.html',
+  selector: 'app-roles',
+  templateUrl: './roles.component.html',
   styleUrls: ['../../template.component.css']
 })
-export class MenusComponent implements OnInit {
-  flagAdd : boolean = false;
-  flagEdit : boolean = false;
-  flagView : boolean = false;
-  flagDelete: boolean = false;
+export class RolesComponent implements OnInit {
 
-  
-  menuName = 'List Menu';
+  menuName = 'List Role';
   loading = false;
-  menus = [];
-  constructor(private menuService: MenusService,
-    private router: Router,
-    private utility: UtilityService) { }
+  roles = [];
+  constructor(private rolesService: RoleService,
+    private router: Router ) { }
 
   ngOnInit() {
-    this.onLoadPrivilege();
     this.getDataMenu();
   }
   getDataMenu(){
-    this.menuService.callData().subscribe(
+    this.rolesService.callData().subscribe(
       (data : string) =>{
         let metaData = JSON.stringify(data);
         let obj = JSON.parse(metaData);
         if(obj.status === 200){
           if(!(obj.data_entity === null)){
              for(let dt of obj.data_entity){
-                 let menu = new ModelMenu(
-                   dt.id_menu,
-                   dt.menu_name,
-                   dt.link,
-                   this.convertToActive(dt.status));
-                   this.menus.push(menu);
+               //console.log(dt.id_role);
+                 let menu = new RoleModel(
+                   dt.id_role,
+                   dt.role_name);
+                   this.roles.push(menu);
              }
 
           }
@@ -53,23 +44,16 @@ export class MenusComponent implements OnInit {
      }
     );
   }
-  convertToActive(data: string){
-   if(data ==='1'){
-     return 'Active';
-   }else{
-     return 'No Active';
-   }
-  }
 
 onAdd(){
-  this.router.navigate(['contents/menus/add']);
+  this.router.navigate(['contents/roles/add']);
 }
 onEdit(id:string){
-  this.router.navigate(['contents/menus/edit', id]);
+  this.router.navigate(['contents/roles/edit', id]);
 }
 
 onView(id:string ){
-  this.router.navigate(['contents/menus/view', id]);
+  this.router.navigate(['contents/roles/view', id]);
 }
 onDelete(id: string){
   Swal.fire({
@@ -82,7 +66,7 @@ onDelete(id: string){
     cancelButtonText: 'Cancel'
   }).then((result) => {
     if (result.value) {
-      this.menuService.deleteMenu(id).subscribe((data : string) =>{
+      this.rolesService.deleteMenu(id).subscribe((data : string) =>{
         let metaData = JSON.stringify(data);
         let obj = JSON.parse(metaData);
          if(obj.status ===200 || obj.status ==='200'){
@@ -91,7 +75,7 @@ onDelete(id: string){
             'Data has been deleted.',
             'success'
           );
-          this.menus = [];
+          this.roles = [];
           this.getDataMenu();
          }else{
           Swal.fire(
@@ -99,8 +83,6 @@ onDelete(id: string){
             'Something wrong. ',
            'error'
           );
-          this.menus = [];
-          this.getDataMenu();
          }
        },
 
@@ -118,20 +100,13 @@ onDelete(id: string){
   })
 }
 
-onLoadPrivilege(){
-  let privilege =  this.utility.loadPrivilege(menu);
-  this.flagAdd = privilege.get('add');
-  this.flagEdit = privilege.get('edit');
-  this.flagView = privilege.get('view');
-  this.flagDelete = privilege.get('delete');
 }
-}
-export class ModelMenu{
+
+export class RoleModel {
+
   constructor(
     public id :string,
-    public menu_name:string,
-    public link: string,
-    public status:string
+    public role_name:string
   ){
 
   }

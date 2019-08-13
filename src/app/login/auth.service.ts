@@ -21,11 +21,24 @@ export class AuthService {
     let body = JSON.stringify({ username: usernameParam, password: passwordParam });
     //let url = 'https://demo-ropandi-backend.herokuapp.com/login'
     let url = this.config.getUrl()+'/auth/login';
-    console.log('url ' + this.config.getUrl())
+    //console.log('url ' + this.config.getUrl())
     return this.http.post(url, body, httpOptions).
         pipe(map((response: any) => {
           //this.responseStatus = response.status;
-          console.log('response code : ' + response);
+          //console.log('response code : ' + response);
+          return response;
+        }
+         ));
+
+
+  }
+  callGet(){
+    let url = this.config.getUrl()+'/auth/getkey';
+    //console.log('url ' + this.config.getUrl())
+    return this.http.get(url).
+        pipe(map((response: any) => {
+          //this.responseStatus = response.status;
+          //console.log('response code : ' + response);
           return response;
         }
          ));

@@ -32,10 +32,8 @@ export class MenusService {
       link: menu.link,
       status: menu.status
     });
-    return this.http.post(url + 'menu/save', body, {headers: headers}).
+    return this.http.post(url, body, {headers: headers}).
       pipe(map((response: any) => {
-        //this.responseStatus = response.status;
-        //console.log('response code : ' + this.responseStatus);
         return response;
       }
       ));
