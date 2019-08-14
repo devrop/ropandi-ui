@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --prod"
+    "postinstall": "ng build --aot --prod"
   },
   "engines": {
     "node": "10.16.0",
@@ -18,10 +18,8 @@
   "dependencies": {
     "@agm/core": "^1.0.0-beta.7",
     "@angular/animations": "~7.1.0",
-    "@angular/cli": "~7.1.4",
     "@angular/common": "~7.1.0",
     "@angular/compiler": "~7.1.0",
-    "@angular/compiler-cli": "~7.1.0",
     "@angular/core": "~7.1.0",
     "@angular/forms": "~7.1.0",
     "@angular/http": "^7.1.0",
@@ -44,7 +42,6 @@
     "d3": "^5.9.7",
     "datatables.net": "^1.10.19",
     "datatables.net-dt": "^1.10.19",
-    "express": "^4.17.1",
     "jquery": "^3.4.1",
     "ng-chartist": "^4.1.0",
     "ng2-charts": "^2.3.0",
@@ -54,10 +51,9 @@
     "ngx-quill": "^7.1.2",
     "ngx-toastr": "^10.0.4",
     "pace-js": "^1.0.2",
-    "path": "^0.12.7",
-    "rxjs": "~6.3.3",
     "sweetalert": "^2.1.2",
     "sweetalert2": "^8.13.4",
+    "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "typescript": "~3.1.6",
     "zone.js": "~0.8.26"

@@ -31,6 +31,7 @@ export class MenuEditComponent implements OnInit {
     this.hashPrivilege();
     this.idParam = this.activeRouter.snapshot.params['id'];
     this.findOneMenubyId(this.idParam);
+    console.log('id ========================== ' +  this.idParam);
   }
 
  findOneMenubyId(id: string){
