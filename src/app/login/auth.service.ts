@@ -35,10 +35,10 @@ export class AuthService {
   callGet(){
     let url = this.config.getUrl()+'/auth/getkey';
     //console.log('url ' + this.config.getUrl())
-    return this.http.get(url).
+    let key = 'ropandi';
+     let body = JSON.stringify({ token: key, status: key});
+    return this.http.post(url,body, httpOptions).
         pipe(map((response: any) => {
-          //this.responseStatus = response.status;
-          //console.log('response code : ' + response);
           return response;
         }
          ));

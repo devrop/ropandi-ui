@@ -1,47 +1,58 @@
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
-import { MenusService } from './service/menus.service';
+import { VehicleService } from './service/vehicle.service';
 import { Router } from '@angular/router';
 import { UtilityService } from 'src/app/utility.service';
-const menu='Menu';
+import Swal from 'sweetalert2';
+const menu='Vehicle';
 @Component({
-  selector: 'app-menus',
-  templateUrl: './menus.component.html',
+  selector: 'app-vehicles',
+  templateUrl: './vehicles.component.html',
   styleUrls: ['../../template.component.css']
 })
-export class MenusComponent implements OnInit {
+export class VehiclesComponent implements OnInit {
   flagAdd : boolean = false;
   flagEdit : boolean = false;
   flagView : boolean = false;
   flagDelete: boolean = false;
 
   
-  menuName = 'List Menu';
+  menuName = 'List Vehicle';
   loading = false;
-  menus = [];
-  constructor(private menuService: MenusService,
+  vehicles = [];
+  constructor(private vehicleService: VehicleService,
     private router: Router,
     private utility: UtilityService) { }
 
   ngOnInit() {
     this.onLoadPrivilege();
-    this.getDataMenu();
+    this.getDataVehicle();
   }
-  getDataMenu(){
-    this.menuService.callData().subscribe(
+  getDataVehicle(){
+  /**
+   * public id_vehicle: string,
+    public police_number: string,
+    public brand: string,
+    public rental_price: string,
+    public unit_stock: string,
+    public created_by: string
+   * 
+   */
+
+    this.vehicleService.onCallData().subscribe(
       (data : string) =>{
         let metaData = JSON.stringify(data);
         let obj = JSON.parse(metaData);
         if(obj.status === 200){
           if(!(obj.data_entity === null)){
              for(let dt of obj.data_entity){
-                 let menu = new ModelMenu(
-                   dt.id_menu,
-                   dt.menu_name,
-                   dt.link,
-                   this.convertToActive(dt.status),
-                   dt.cetegory_code);
-                   this.menus.push(menu);
+                 let ve = new VehicleModel(
+                   dt.id_vehicle,
+                   dt.police_number,
+                   dt.brand,
+                   dt.rental_price,
+                   dt.unit_stock,
+                   dt.created_by);
+                   this.vehicles.push(ve);
              }
 
           }
@@ -54,23 +65,16 @@ export class MenusComponent implements OnInit {
      }
     );
   }
-  convertToActive(data: string){
-   if(data ==='1'){
-     return 'Active';
-   }else{
-     return 'No Active';
-   }
-  }
-
+ 
 onAdd(){
-  this.router.navigate(['contents/menus/add']);
+  this.router.navigate(['contents/vehicles/add']);
 }
 onEdit(id:string){
-  this.router.navigate(['contents/menus/edit', id]);
+  this.router.navigate(['contents/vehicles/edit', id]);
 }
 
 onView(id:string ){
-  this.router.navigate(['contents/menus/view', id]);
+  this.router.navigate(['contents/vehicles/view', id]);
 }
 onDelete(id: string){
   Swal.fire({
@@ -83,7 +87,7 @@ onDelete(id: string){
     cancelButtonText: 'Cancel'
   }).then((result) => {
     if (result.value) {
-      this.menuService.deleteMenu(id).subscribe((data : string) =>{
+      this.vehicleService.deleteById(id).subscribe((data : string) =>{
         let metaData = JSON.stringify(data);
         let obj = JSON.parse(metaData);
          if(obj.status ===200 || obj.status ==='200'){
@@ -92,16 +96,14 @@ onDelete(id: string){
             'Data has been deleted.',
             'success'
           );
-          this.menus = [];
-          this.getDataMenu();
+          this.vehicles = [];
+          this.getDataVehicle();
          }else{
           Swal.fire(
             'Delete failed',
             'Something wrong. ',
            'error'
           );
-          this.menus = [];
-          this.getDataMenu();
          }
        },
 
@@ -127,22 +129,17 @@ onLoadPrivilege(){
   this.flagDelete = privilege.get('delete');
 }
 }
-export class ModelMenu{
+export class VehicleModel{
   constructor(
-    public id :string,
-    public menu_name:string,
-    public link: string,
-    public status:string,
-    public category_name: string
+    public id_vehicle: string,
+    public police_number: string,
+    public brand: string,
+    public rental_price: string,
+    public unit_stock: string,
+    public created_by: string
+
   ){
 
   }
-}
-export class CategoryModel{
-  constructor(
-   public id : string,
-   public category_name :string
-  ){
 
-  }
 }

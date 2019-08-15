@@ -27,6 +27,18 @@
                     </div>
                 </div>
     
+                <div class="row form-group">
+                        <div class="col col-md-3">
+                          <label for="select" class=" form-control-label">Category Code</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                          <select id="category-id" class="form-control" [(ngModel)]="model.categoryCode" name="category">
+                            <option *ngFor="let data of categorys" [value]="data.id">{{data.category_name}}</option>
+                          </select>
+                        </div>
+                      </div>
+
+
                   <div class="row form-group">
                       <div class="col col-md-3">
                           <label class=" form-control-label">Status</label>

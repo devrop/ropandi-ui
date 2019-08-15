@@ -1,8 +1,29 @@
 @import '../../assets/css/theme.css';
 @import '../../assets/vendor/bootstrap.min.css';
 @import '../../assets/vendor/animsition/animsition.min.css';
-
-
+.dropdown-container {
+  padding-left: 34px;
+}
+.sidebarz {
+  background-color: #000000;  /*Green */
+  border: none;
+  color: white;
+  padding: 12px;
+  text-align: left;
+  text-decoration: none;
+  font-size: 16px;
+}
+.sidebarz-sub {
+  background-color:#e7e7e7;  /*Green */
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+  color: black;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+}
 .backdrop {
     background-color:rgba(0,0,0,0.6);
     position:fixed;

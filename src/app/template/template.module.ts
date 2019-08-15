@@ -5,13 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FormsModule } from '@angular/forms';
 import { ContentsComponent } from './contents/contents.component';
-import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { UsersComponent } from './contents/users/users.component';
-import { MenusComponent } from './contents/menus/menus.component';
-import { StudentsComponent } from './contents/students/students.component';
-import { TeachersComponent } from './contents/teachers/teachers.component';
-import { RolesComponent } from './contents/roles/roles.component';
 const templatRoutes: Routes = [
   {
     path: '',
@@ -114,6 +108,23 @@ const templatRoutes: Routes = [
         path: 'roles\/edit\/:id',
         loadChildren:'.\/contents\/roles\/role-edit.module#RoleEditModule'
       },
+      {
+        path: 'vehicles',
+        loadChildren:'.\/contents\/vehicles\/vehicles.module#VehiclesModule'
+      },
+      {
+        path: 'vehicles\/add',
+        loadChildren:'.\/contents\/vehicles\/vehicle-add.module#VehicleAddModule'
+      },
+      {
+        path: 'vehicles\/view\/:id',
+        loadChildren:'.\/contents\/vehicles\/vehicle-view.module#VehicleViewModule'
+      },
+      {
+        path: 'vehicles\/edit\/:id',
+        loadChildren:'.\/contents\/vehicles\/vehicle-edit.module#VehicleEditModule'
+      },
+
       {
         path: '',
         component: ContentsComponent

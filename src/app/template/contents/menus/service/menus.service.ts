@@ -30,7 +30,8 @@ export class MenusService {
       id_menu : menu.id,
       menu_name: menu.menu_name,
       link: menu.link,
-      status: menu.status
+      status: menu.status,
+      cetegory_code : menu.category_name
     });
     return this.http.post(url, body, {headers: headers}).
       pipe(map((response: any) => {

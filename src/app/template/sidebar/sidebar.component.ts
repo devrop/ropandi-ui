@@ -16,7 +16,8 @@ export class SidebarMenu {
   styleUrls: ['../template.component.css']
 })
 export class SidebarComponent implements OnInit {
-  menus =[];
+  menusContents =[];
+  menusSettings=[];
   name ='';
   constructor(private utility: UtilityService) { }
 
@@ -28,14 +29,21 @@ export class SidebarComponent implements OnInit {
     let menusFromSession = this.utility.loadListMenuAndUrl();
     //console.log('menuFromSession' + menusFromSession);
     for(let menu of menusFromSession){
-      let dataArray = menu.split('=');
-      let id = dataArray[0]+dataArray[1];
+      let dataArray = menu.split('='); //student = hhh &&;
+      let id = dataArray[0]+dataArray[1] + dataArray[2];
+      let link = dataArray[1];
+      let cat = dataArray[2]
      // console.log(dataArray[1]);
-        if(dataArray[1] === undefined){
+        if(link === undefined && cat === undefined ){
 
         }else{
-          let data = new SidebarMenu(id,dataArray[0], dataArray[1]);
-          this.menus.push(data);
+          if(cat === 'C'){
+            let data = new SidebarMenu(id,dataArray[0], link);
+            this.menusContents.push(data)
+          }else if(cat === 'S'){
+            let data = new SidebarMenu(id,dataArray[0], link);
+            this.menusSettings.push(data);
+          }
         }
     }
   }

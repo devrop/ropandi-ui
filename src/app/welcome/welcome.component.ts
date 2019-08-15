@@ -8,9 +8,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-   kata = 'satu';
-   en = '';
-   de = '';
    
   constructor(private encrDecrService: EncrDecrService,
     private router: Router) { }

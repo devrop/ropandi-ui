@@ -19,7 +19,8 @@ export class MenuEditComponent implements OnInit {
     id: null,
     menuName: null,
     menuLink: null,
-    status: null
+    status: null,
+    category: null,
   }
   constructor(private menuService: MenusService,
     private router: Router,
@@ -45,6 +46,7 @@ export class MenuEditComponent implements OnInit {
                this.model.menuName = data.menu_name;
                this.model.menuLink =  data.link;
                this.model.status = data.status;
+               this.model.category = data.cetegory_code;
                break;
                }
           } else {
@@ -64,7 +66,7 @@ export class MenuEditComponent implements OnInit {
     //console.log("status " + this.model.status);
     //console.log("status" + this.converToNumber(this.model.status));
     let statusFinal = this.converToNumber(this.model.status);
-    let request = new ModelMenu(this.idParam, this.model.menuName, this.model.menuLink,statusFinal);
+    let request = new ModelMenu(this.idParam, this.model.menuName, this.model.menuLink,statusFinal, this.model.category);
     this.menuService.savePrivilege(request).subscribe(
       (data:string) => {
         let obj = UtilityService.convertStringToJSON(data);

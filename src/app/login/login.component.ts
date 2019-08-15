@@ -57,7 +57,8 @@ export class LoginComponent implements OnInit {
     const keys = sessionStorage.getItem('keys');
     let decrytedKey = this.encrDecrService.decryptData(keys);
     this.loading = true;
-    let passwordenc = this.encrDecrService.enCrypPassword(decrytedKey,this.model.password);
+    let psFix = this.model.password;
+    let passwordenc = this.encrDecrService.enCrypPassword(decrytedKey,psFix.trim());
     //console.log(passwordenc);
     //let decry = this.encrDecrService.decrypPassword(decrytedKey,passwordenc);
     this.authService.callHttpSeverPost(this.model.username, passwordenc).subscribe(
@@ -102,7 +103,7 @@ export class LoginComponent implements OnInit {
     let privileges  = '';
     for(let menu of data.menus){
       //console.log(menu.menu_name+'=' + menu.link +';');
-       let temp:string = menu.menu_name +'='+ menu.link +';'; //
+       let temp:string = menu.menu_name +'='+ menu.link +'='+menu.category_menu+';'; //
        menus = menus + temp;
       // console.log('temp = ' + temp);
       // console.log('menu ' + menu);

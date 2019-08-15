@@ -10,6 +10,10 @@ import Swal from 'sweetalert2';
   styleUrls: ['../../template.component.css']
 })
 export class UsersComponent implements OnInit {
+  flagAdd : boolean = false;
+  flagEdit : boolean = false;
+  flagView : boolean = false;
+  flagDelete: boolean = false;
 
   userLogins: UsersLogin[] = [];
   userlogin: UsersLogin = null;

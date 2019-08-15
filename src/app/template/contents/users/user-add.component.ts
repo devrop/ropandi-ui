@@ -108,7 +108,7 @@ export class UserAddComponent implements OnInit {
   );
  }
  onLoadMenu(){
-   let deva = new ModelMenu('0','Please select','','');
+   let deva = new ModelMenu('0','Please select','','','0');
    this.menus.push(deva);
   this.menuService.callData().subscribe(
     (data : string) =>{
@@ -120,7 +120,8 @@ export class UserAddComponent implements OnInit {
                let menu = new ModelMenu(
                  dt.id_menu,
                  dt.menu_name,
-                 dt.link,dt.status)
+                 dt.link,dt.status,
+                 dt.cetegory_code)
                  this.menus.push(menu);
            }
 
