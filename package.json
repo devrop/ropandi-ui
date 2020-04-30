@@ -43,7 +43,7 @@
     "datatables.net": "^1.10.19",
     "datatables.net-dt": "^1.10.19",
     "express": "^4.17.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ng-chartist": "^4.1.0",
     "ng2-charts": "^2.3.0",
     "ng2-dragula": "^2.1.1",
