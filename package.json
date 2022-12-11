@@ -42,7 +42,7 @@
     "d3": "^5.9.7",
     "datatables.net": "^1.10.19",
     "datatables.net-dt": "^1.10.19",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "jquery": "^3.4.1",
     "ng-chartist": "^4.1.0",
     "ng2-charts": "^2.3.0",
