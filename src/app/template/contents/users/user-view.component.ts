@@ -10,11 +10,15 @@ import { MenusService } from '../menus/service/menus.service';
 import { RoleService } from '../roles/service/role.service';
 import { UserService } from './service/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user-view',
   templateUrl: './user-view.component.html',
-  styleUrls: ['../../template.component.css']
+  styleUrls: ['../../template.component.css'],
+  imports: [CommonModule, FormsModule],
+  standalone: true
 })
 export class UserViewComponent implements OnInit {
   menuName ='View User'

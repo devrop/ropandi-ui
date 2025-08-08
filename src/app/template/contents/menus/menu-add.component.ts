@@ -4,11 +4,15 @@ import { Router } from '@angular/router';
 import { ModelMenu, CategoryModel } from './menus.component';
 import { UtilityService } from 'src/app/utility.service';
 import { SwalUtil } from 'src/app/swal-util';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 const category = [ new CategoryModel('0','Please Select'),new CategoryModel('C','Contents'),new CategoryModel('S','Settings')];
 @Component({
   selector: 'app-menu-add',
   templateUrl: './menu-add.component.html',
-  styleUrls: ['../../template.component.css']
+  styleUrls: ['../../template.component.css'],
+  imports: [CommonModule, FormsModule],
+  standalone: true
 })
 export class MenuAddComponent implements OnInit {
   categorys = category;

@@ -11,9 +11,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [VehicleViewComponent],
+  declarations: [],
   imports: [
-    CommonModule, RouterModule.forChild(routes)
+    CommonModule, RouterModule.forChild(routes),
+    VehicleViewComponent
   ]
 })
 export class VehicleViewModule { }

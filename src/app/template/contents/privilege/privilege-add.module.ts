@@ -12,10 +12,11 @@ const privilegeAddRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [PrivilegeAddComponent],
+  declarations: [],
   imports: [
     CommonModule,
-    FormsModule,RouterModule.forChild(privilegeAddRoutes)
+    FormsModule,RouterModule.forChild(privilegeAddRoutes),
+    PrivilegeAddComponent
   ]
 })
 export class PrivilegeAddModule { }

@@ -14,9 +14,10 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [MenuAddComponent],
+  declarations: [],
   imports: [FormsModule,
-    CommonModule,RouterModule.forChild(routes)
+    CommonModule,RouterModule.forChild(routes),
+    MenuAddComponent
   ]
 })
 export class MenuAddModule { }

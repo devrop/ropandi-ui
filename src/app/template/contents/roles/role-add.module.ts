@@ -14,9 +14,10 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [RoleAddComponent],
+  declarations: [],
   imports: [ FormsModule,
-    CommonModule, RouterModule.forChild(routes)
+    CommonModule, RouterModule.forChild(routes),
+    RoleAddComponent
   ]
 })
 export class RoleAddModule { }

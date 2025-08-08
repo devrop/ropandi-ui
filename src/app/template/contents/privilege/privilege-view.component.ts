@@ -2,11 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PrivilegeService } from './service/privilege.service';
 import { Option } from './privilege.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-privilege-view',
   templateUrl: './privilege-view.component.html',
-  styleUrls: ['../../template.component.css']
+  styleUrls: ['../../template.component.css'],
+  imports: [CommonModule, FormsModule],
+  standalone: true
 })
 export class PrivilegeViewComponent implements OnInit {
 

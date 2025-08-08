@@ -13,9 +13,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [RoleEditComponent],
+  declarations: [],
   imports: [FormsModule,
-    CommonModule, RouterModule.forChild(routes)
+    CommonModule, RouterModule.forChild(routes),
+    RoleEditComponent
   ]
 })
 export class RoleEditModule { }

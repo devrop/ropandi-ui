@@ -4,11 +4,15 @@ import { PrivilegeService } from './service/privilege.service';
 import { PrivilegeModel, Option } from './privilege.component';
 import { UtilityService } from 'src/app/utility.service';
 import { SwalUtil } from 'src/app/swal-util';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-privilege-edit',
   templateUrl: './privilege-edit.component.html',
-  styleUrls: ['../../template.component.css']
+  styleUrls: ['../../template.component.css'],
+  imports: [CommonModule, FormsModule],
+  standalone: true
 })
 export class PrivilegeEditComponent implements OnInit {
 

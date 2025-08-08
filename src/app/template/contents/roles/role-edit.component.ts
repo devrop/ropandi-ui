@@ -4,11 +4,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { SwalUtil } from 'src/app/swal-util';
 import { RoleModel } from './roles.component';
 import { UtilityService } from 'src/app/utility.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-role-edit',
   templateUrl: './role-edit.component.html',
-  styleUrls: ['../../template.component.css']
+  styleUrls: ['../../template.component.css'],
+  imports: [CommonModule, FormsModule],
+  standalone: true
 })
 export class RoleEditComponent implements OnInit {
 

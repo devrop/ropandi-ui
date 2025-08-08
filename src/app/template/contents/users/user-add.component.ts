@@ -11,11 +11,15 @@ import { RoleService } from '../roles/service/role.service';
 import { RoleModel } from '../roles/roles.component';
 import { RoleJson, MenuPrivilege } from './users.component';
 import { EncrDecrService } from 'src/app/security/encr-decr.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user-add',
   templateUrl: './user-add.component.html',
-  styleUrls: ['../../template.component.css']
+  styleUrls: ['../../template.component.css'],
+  imports: [CommonModule, FormsModule],
+  standalone: true
 })
 export class UserAddComponent implements OnInit {
   loading = false;

@@ -3,11 +3,14 @@ import { TokenService } from '../../token.service';
 import { UserService } from './service/user.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['../../template.component.css']
+  styleUrls: ['../../template.component.css'],
+  imports: [CommonModule],
+  standalone: true
 })
 export class UsersComponent implements OnInit {
   flagAdd : boolean = false;

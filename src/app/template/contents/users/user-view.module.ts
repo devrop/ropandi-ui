@@ -11,9 +11,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [UserViewComponent],
+  declarations: [],
   imports: [FormsModule,
-    CommonModule, RouterModule.forChild(routes)
+    CommonModule, RouterModule.forChild(routes),
+    UserViewComponent
   ]
 })
 export class UserViewModule { }

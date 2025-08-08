@@ -4,11 +4,15 @@ import { Router } from '@angular/router';
 import { RoleModel } from './roles.component';
 import { UtilityService } from 'src/app/utility.service';
 import { SwalUtil } from 'src/app/swal-util';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-role-add',
   templateUrl: './role-add.component.html',
-  styleUrls: ['../../template.component.css']
+  styleUrls: ['../../template.component.css'],
+  imports: [CommonModule, FormsModule],
+  standalone: true
 })
 export class RoleAddComponent implements OnInit {
   menuName = 'Add Role';

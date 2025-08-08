@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { RoleService } from './service/role.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-roles',
   templateUrl: './roles.component.html',
-  styleUrls: ['../../template.component.css']
+  styleUrls: ['../../template.component.css'],
+  imports: [CommonModule],
+  standalone: true
 })
 export class RolesComponent implements OnInit {
 

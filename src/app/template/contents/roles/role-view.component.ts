@@ -3,11 +3,15 @@ import { RoleService } from './service/role.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SwalUtil } from 'src/app/swal-util';
 import { RoleModel } from './roles.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-role-view',
   templateUrl: './role-view.component.html',
-  styleUrls: ['../../template.component.css']
+  styleUrls: ['../../template.component.css'],
+  imports: [CommonModule, FormsModule],
+  standalone: true
 })
 export class RoleViewComponent implements OnInit {
 

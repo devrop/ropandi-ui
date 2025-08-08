@@ -11,9 +11,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [TeacherViewComponent],
+  declarations: [],
   imports: [
-    CommonModule, RouterModule.forChild(routes)
+    CommonModule, RouterModule.forChild(routes),
+    TeacherViewComponent
   ]
 })
 export class TeacherViewModule { }

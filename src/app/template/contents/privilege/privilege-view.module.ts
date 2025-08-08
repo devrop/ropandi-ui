@@ -11,9 +11,10 @@ const routes: Routes = [
 }
 ];
 @NgModule({
-  declarations: [PrivilegeViewComponent],
+  declarations: [],
   imports: [FormsModule,
-    CommonModule, RouterModule.forChild(routes)
+    CommonModule, RouterModule.forChild(routes),
+    PrivilegeViewComponent
   ]
 })
 export class PrivilegeViewModule { }

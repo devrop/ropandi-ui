@@ -4,12 +4,16 @@ import { Option, PrivilegeModel } from './privilege.component';
 import { PrivilegeService } from './service/privilege.service';
 import { UtilityService } from 'src/app/utility.service';
 import { SwalUtil } from 'src/app/swal-util';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 const defaultA = 'Please select';
 @Component({
   selector: 'app-privilege-add',
   templateUrl: './privilege-add.component.html',
-  styleUrls: ['../../template.component.css']
+  styleUrls: ['../../template.component.css'],
+  imports: [CommonModule, FormsModule],
+  standalone: true
 })
 export class PrivilegeAddComponent implements OnInit {
 

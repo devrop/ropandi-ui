@@ -14,9 +14,10 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [StudentEditComponent],
+  declarations: [],
   imports: [
-    CommonModule, RouterModule.forChild(routes)
+    CommonModule, RouterModule.forChild(routes),
+    StudentEditComponent
   ]
 })
 export class StudentEditModule { }

@@ -4,11 +4,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ModelMenu } from './menus.component';
 import { UtilityService } from 'src/app/utility.service';
 import { SwalUtil } from 'src/app/swal-util';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 const menu = 'Menu'
 @Component({
   selector: 'app-menu-edit',
   templateUrl: './menu-edit.component.html',
-  styleUrls: ['../../template.component.css']
+  styleUrls: ['../../template.component.css'],
+  imports: [CommonModule, FormsModule],
+  standalone: true
 })
 export class MenuEditComponent implements OnInit {
 

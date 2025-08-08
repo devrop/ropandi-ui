@@ -14,11 +14,12 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [PrivilegeEditComponent],
+  declarations: [],
   imports: [
     CommonModule,
     FormsModule,
-    CommonModule,RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    PrivilegeEditComponent
   ]
 })
 export class PrivilegeEditModule { }

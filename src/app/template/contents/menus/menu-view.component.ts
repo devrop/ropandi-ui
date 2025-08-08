@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { MenusService } from './service/menus.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-menu-view',
   templateUrl: './menu-view.component.html',
-  styleUrls: ['../../template.component.css']
+  styleUrls: ['../../template.component.css'],
+  imports: [CommonModule, FormsModule],
+  standalone: true
 })
 export class MenuViewComponent implements OnInit {
 
