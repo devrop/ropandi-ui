@@ -13,9 +13,10 @@ const privilegeRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [PrivilegeComponent],
+  declarations: [],
   imports: [
-    CommonModule, RouterModule.forChild(privilegeRoutes)
+    CommonModule, RouterModule.forChild(privilegeRoutes),
+    PrivilegeComponent
   ],
   exports: [
     RouterModule
