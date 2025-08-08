@@ -86,14 +86,14 @@ export class UsersComponent implements OnInit {
   onDelete(id:string) {
     Swal.fire({
       title: 'Are you sure to delete this data?',
-      type: 'warning',
+      icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, Delete!',
       cancelButtonText: 'Cancel'
     }).then((result) => {
-      if (result.value) {
+      if (result.isConfirmed) {
 
         this.userService.deleteUser(id).subscribe((data : string) =>{
           let metaData = JSON.stringify(data);

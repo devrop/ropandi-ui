@@ -14,115 +14,115 @@ const templatRoutes: Routes = [
     children: [
       {
         path: 'privileges',
-        loadChildren:'.\/contents\/privilege\/privilege.module#PrivilegeModule'
+        loadChildren: () => import('./contents/privilege/privilege.module').then(m => m.PrivilegeModule)
       },
       {
-        path :'privileges\/add',
-        loadChildren: '.\/contents\/privilege\/privilege-add.module#PrivilegeAddModule'
+        path :'privileges/add',
+        loadChildren: () => import('./contents/privilege/privilege-add.module').then(m => m.PrivilegeAddModule)
       },
       {
-        path :'privileges\/view\/:id',
-        loadChildren: '.\/contents\/privilege\/privilege-view.module#PrivilegeViewModule'
+        path :'privileges/view/:id',
+        loadChildren: () => import('./contents/privilege/privilege-view.module').then(m => m.PrivilegeViewModule)
       },
       {
-        path :'privileges\/edit\/:id',
-        loadChildren: '.\/contents\/privilege\/privilege-edit.module#PrivilegeEditModule'
+        path :'privileges/edit/:id',
+        loadChildren: () => import('./contents/privilege/privilege-edit.module').then(m => m.PrivilegeEditModule)
       },
       {
         path: 'menus',
-        loadChildren:'.\/contents\/menus\/menus.module#MenusModule'
+        loadChildren: () => import('./contents/menus/menus.module').then(m => m.MenusModule)
       },
       {
-        path: 'menus\/add',
-        loadChildren:'.\/contents\/menus\/menu-add.module#MenuAddModule'
+        path: 'menus/add',
+        loadChildren: () => import('./contents/menus/menu-add.module').then(m => m.MenuAddModule)
       },
       {
-        path: 'menus\/edit\/:id',
-        loadChildren:'.\/contents\/menus\/menu-edit.module#MenuEditModule'
+        path: 'menus/edit/:id',
+        loadChildren: () => import('./contents/menus/menu-edit.module').then(m => m.MenuEditModule)
       },
       {
-        path: 'menus\/view\/:id',
-        loadChildren:'.\/contents\/menus\/menu-view.module#MenuViewModule'
+        path: 'menus/view/:id',
+        loadChildren: () => import('./contents/menus/menu-view.module').then(m => m.MenuViewModule)
       },
       {
         path: 'students',
-        loadChildren:'.\/contents\/students\/students.module#StudentsModule'
+        loadChildren: () => import('./contents/students/students.module').then(m => m.StudentsModule)
       },
       {
-        path: 'students\/add',
-        loadChildren:'.\/contents\/students\/student-add.module#StudentAddModule'
+        path: 'students/add',
+        loadChildren: () => import('./contents/students/student-add.module').then(m => m.StudentAddModule)
       },
       {
-        path: 'students\/edit\/:id',
-        loadChildren:'.\/contents\/students\/student-edit.module#StudentEditModule'
+        path: 'students/edit/:id',
+        loadChildren: () => import('./contents/students/student-edit.module').then(m => m.StudentEditModule)
       },
       {
-        path: 'students\/view\/:id',
-        loadChildren:'.\/contents\/students\/student-view.module#StudentViewModule'
+        path: 'students/view/:id',
+        loadChildren: () => import('./contents/students/student-view.module').then(m => m.StudentViewModule)
       },
       {
         path: 'teachers',
-        loadChildren:'.\/contents\/teachers\/teachers.module#TeachersModule'
+        loadChildren: () => import('./contents/teachers/teachers.module').then(m => m.TeachersModule)
       },
       {
-        path: 'teachers\/add',
-        loadChildren:'.\/contents\/teachers\/teacher-add.module#TeacherAddModule'
+        path: 'teachers/add',
+        loadChildren: () => import('./contents/teachers/teacher-add.module').then(m => m.TeacherAddModule)
       },
       {
-        path: 'teachers\/edit\/:id',
-        loadChildren:'.\/contents\/teachers\/teacher-edit.module#TeacherEditModule'
+        path: 'teachers/edit/:id',
+        loadChildren: () => import('./contents/teachers/teacher-edit.module').then(m => m.TeacherEditModule)
       },
       {
-        path: 'teachers\/view\/:id',
-        loadChildren:'.\/contents\/teachers\/teacher-view.module#TeacherViewModule'
+        path: 'teachers/view/:id',
+        loadChildren: () => import('./contents/teachers/teacher-view.module').then(m => m.TeacherViewModule)
       },
       {
         path: 'users',
-        loadChildren:'.\/contents\/users\/users.module#UsersModule'
+        loadChildren: () => import('./contents/users/users.module').then(m => m.UsersModule)
       },
       {
-        path: 'users\/add',
-        loadChildren:'.\/contents\/users\/user-add.module#UserAddModule'
+        path: 'users/add',
+        loadChildren: () => import('./contents/users/user-add.module').then(m => m.UserAddModule)
       },
       {
-        path: 'users\/edit\/:id',
-        loadChildren:'.\/contents\/users\/user-edit.module#UserEditModule'
+        path: 'users/edit/:id',
+        loadChildren: () => import('./contents/users/user-edit.module').then(m => m.UserEditModule)
       },
       {
-        path: 'users\/view\/:id',
-        loadChildren:'.\/contents\/users\/user-view.module#UserViewModule'
+        path: 'users/view/:id',
+        loadChildren: () => import('./contents/users/user-view.module').then(m => m.UserViewModule)
       },
       {
         path: 'roles',
-        loadChildren:'.\/contents\/roles\/roles.module#RolesModule'
+        loadChildren: () => import('./contents/roles/roles.module').then(m => m.RolesModule)
       },
       {
-        path: 'roles\/add',
-        loadChildren:'.\/contents\/roles\/role-add.module#RoleAddModule'
+        path: 'roles/add',
+        loadChildren: () => import('./contents/roles/role-add.module').then(m => m.RoleAddModule)
       },
       {
-        path: 'roles\/view\/:id',
-        loadChildren:'.\/contents\/roles\/role-view.module#RoleViewModule'
+        path: 'roles/view/:id',
+        loadChildren: () => import('./contents/roles/role-view.module').then(m => m.RoleViewModule)
       },
       {
-        path: 'roles\/edit\/:id',
-        loadChildren:'.\/contents\/roles\/role-edit.module#RoleEditModule'
+        path: 'roles/edit/:id',
+        loadChildren: () => import('./contents/roles/role-edit.module').then(m => m.RoleEditModule)
       },
       {
         path: 'vehicles',
-        loadChildren:'.\/contents\/vehicles\/vehicles.module#VehiclesModule'
+        loadChildren: () => import('./contents/vehicles/vehicles.module').then(m => m.VehiclesModule)
       },
       {
-        path: 'vehicles\/add',
-        loadChildren:'.\/contents\/vehicles\/vehicle-add.module#VehicleAddModule'
+        path: 'vehicles/add',
+        loadChildren: () => import('./contents/vehicles/vehicle-add.module').then(m => m.VehicleAddModule)
       },
       {
-        path: 'vehicles\/view\/:id',
-        loadChildren:'.\/contents\/vehicles\/vehicle-view.module#VehicleViewModule'
+        path: 'vehicles/view/:id',
+        loadChildren: () => import('./contents/vehicles/vehicle-view.module').then(m => m.VehicleViewModule)
       },
       {
-        path: 'vehicles\/edit\/:id',
-        loadChildren:'.\/contents\/vehicles\/vehicle-edit.module#VehicleEditModule'
+        path: 'vehicles/edit/:id',
+        loadChildren: () => import('./contents/vehicles/vehicle-edit.module').then(m => m.VehicleEditModule)
       },
 
       {

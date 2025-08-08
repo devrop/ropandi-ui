@@ -123,14 +123,14 @@ export class LoginComponent implements OnInit {
   
   swallErrorPassword(){
     Swal.fire({
-      type: 'error',
+      icon: 'error',
       title: 'Oops...',
       text: 'username or password you entered is incorrect. '
     })
   }
   swallErrorWebservice(){
     Swal.fire({
-      type: 'error',
+      icon: 'error',
       title: 'Oops...',
       text: 'An error occurred on the webservice. '
     })

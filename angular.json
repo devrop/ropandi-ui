@@ -24,8 +24,6 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/js/jquery.min.js",
-              "src/assets/bootstrap/js/bootstrap.min.js",
               "src/assets/fonts/font-awesome.min.css",
               "src/assets/fonts/ionicons.min.css",
               "src/assets/vendor/mdi-font/css/material-design-iconic-font.min.css",
@@ -36,9 +34,10 @@
               "src/assets/vendor/slick/slick.css",
               "src/assets/vendor/select2/select2.min.css",
               "src/assets/vendor/perfect-scrollbar/perfect-scrollbar.css"
-              
             ],
             "scripts": [
+              "src/assets/js/jquery.min.js",
+              "src/assets/bootstrap/js/bootstrap.min.js"
             ]
           },
           "configurations": {
@@ -117,5 +116,8 @@
       }
     }
   },
-  "defaultProject": "ropandi-ui"
+  "defaultProject": "ropandi-ui",
+  "cli": {
+    "analytics": "fa674321-a0d0-4f81-96eb-7a8edb2e6be8"
+  }
 }

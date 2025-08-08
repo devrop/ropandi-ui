@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
     static AlertSucces(){
       Swal.fire({
         position: 'center',
-        type: 'success',
+        icon: 'success',
         title: 'data has been saved',
         showConfirmButton: false,
         timer: 1500
@@ -19,7 +19,7 @@ import Swal from 'sweetalert2';
     }
     static AlertError(){
       Swal.fire({
-        type: 'error',
+        icon: 'error',
         title: 'Oops...',
         text: 'Something went wrong!',
       })
@@ -27,7 +27,7 @@ import Swal from 'sweetalert2';
     static AlertDontHasPrivilege(){
       Swal.fire({
         position: 'center',
-        type: 'warning',
+        icon: 'warning',
         title: 'Oops...',
         text: 'You dont have acces to this Menu!',
         showConfirmButton: false,

@@ -18,14 +18,14 @@ export class HeaderComponent implements OnInit {
   onSignOut(){
     Swal.fire({
       title: 'Are you sure to log out?',
-      type: 'warning',
+      icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes',
       cancelButtonText: 'No'
     }).then((result) => {
-      if (result.value) {
+      if (result.isConfirmed) {
          sessionStorage.removeItem('token');
          sessionStorage.removeItem('keys');
          sessionStorage.removeItem('menu');

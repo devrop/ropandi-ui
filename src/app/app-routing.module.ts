@@ -8,10 +8,10 @@ const routes: Routes = [
 },
 {
   path:'login',
-  loadChildren: './login/login.module#LoginModule'
+  loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
 },{
   path:'contents',
-  loadChildren: './template/template.module#TemplateModule'
+  loadChildren: () => import('./template/template.module').then(m => m.TemplateModule)
 }
 ];
 
