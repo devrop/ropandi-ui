@@ -4,11 +4,15 @@ import { AuthService } from './auth.service';
 //import swal  from 'sweetalert2';
 import { EncrDecrService } from '../security/encr-decr.service';
 import Swal from 'sweetalert2';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['../template/template.component.css']
+  styleUrls: ['../template/template.component.css'],
+  imports: [FormsModule, CommonModule],
+  standalone: true
 })
 export class LoginComponent implements OnInit {
   

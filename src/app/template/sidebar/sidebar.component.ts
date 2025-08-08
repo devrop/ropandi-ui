@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilityService } from 'src/app/utility.service';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 export class SidebarMenu {
   constructor(
@@ -13,7 +15,9 @@ export class SidebarMenu {
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['../template.component.css']
+  styleUrls: ['../template.component.css'],
+  imports: [CommonModule, RouterModule],
+  standalone: true
 })
 export class SidebarComponent implements OnInit {
   menusContents =[];

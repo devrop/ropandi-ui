@@ -6,7 +6,14 @@ import { LoginComponent } from './login.component';
 import { FormsModule } from '@angular/forms';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
-@NgModule({ declarations: [LoginComponent], imports: [CommonModule,
+@NgModule({ 
+    declarations: [], 
+    imports: [
+        CommonModule,
         FormsModule,
-        LoginRoutingModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        LoginRoutingModule,
+        LoginComponent
+    ], 
+    providers: [provideHttpClient(withInterceptorsFromDi())] 
+})
 export class LoginModule { }

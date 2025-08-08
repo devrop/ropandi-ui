@@ -140,11 +140,15 @@ const templatRoutes: Routes = [
 
 
 @NgModule({
-  declarations: [TemplateComponent, HeaderComponent, SidebarComponent,ContentsComponent],
+  declarations: [],
   imports: [
     FormsModule,
     CommonModule,
-    RouterModule.forChild(templatRoutes)
+    RouterModule.forChild(templatRoutes),
+    TemplateComponent,
+    HeaderComponent,
+    SidebarComponent,
+    ContentsComponent
   ],
   exports: [RouterModule]
 })

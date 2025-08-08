@@ -8,10 +8,15 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 
-@NgModule({ declarations: [
+@NgModule({ 
+    declarations: [],
+    bootstrap: [AppComponent], 
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
         AppComponent,
         WelcomeComponent
-    ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
-        AppRoutingModule], providers: [EncrDecrService, provideHttpClient(withInterceptorsFromDi())] })
+    ], 
+    providers: [EncrDecrService, provideHttpClient(withInterceptorsFromDi())] 
+})
 export class AppModule { }

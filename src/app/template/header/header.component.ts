@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { TemplateComponent } from '../template.component';
 import Swal from 'sweetalert2';
 import { Route, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['../template.component.css']
+  styleUrls: ['../template.component.css'],
+  imports: [CommonModule],
+  standalone: true
 })
 export class HeaderComponent implements OnInit {
 
