@@ -1,8 +1,7 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 import { WelcomeComponent } from './welcome/welcome.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {path:'',
   component: WelcomeComponent   
 },
@@ -14,9 +13,3 @@ const routes: Routes = [
   loadChildren: () => import('./template/template.module').then(m => m.TemplateModule)
 }
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }

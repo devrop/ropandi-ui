@@ -3,11 +3,14 @@ import { VehicleService } from './service/vehicle.service';
 import { Router } from '@angular/router';
 import { UtilityService } from 'src/app/utility.service';
 import Swal from 'sweetalert2';
+import { CommonModule } from '@angular/common';
 const menu='Vehicle';
 @Component({
   selector: 'app-vehicles',
   templateUrl: './vehicles.component.html',
-  styleUrls: ['../../template.component.css']
+  styleUrls: ['../../template.component.css'],
+  imports: [CommonModule],
+  standalone: true
 })
 export class VehiclesComponent implements OnInit {
   flagAdd : boolean = false;

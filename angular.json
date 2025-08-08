@@ -72,18 +72,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ropandi-ui:build"
+            "buildTarget": "ropandi-ui:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ropandi-ui:build:production"
+              "buildTarget": "ropandi-ui:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ropandi-ui:build"
+            "buildTarget": "ropandi-ui:build"
           }
         },
         "test": {

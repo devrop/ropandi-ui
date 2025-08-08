@@ -3,11 +3,14 @@ import Swal from 'sweetalert2';
 import { MenusService } from './service/menus.service';
 import { Router } from '@angular/router';
 import { UtilityService } from 'src/app/utility.service';
+import { CommonModule } from '@angular/common';
 const menu='Menu';
 @Component({
   selector: 'app-menus',
   templateUrl: './menus.component.html',
-  styleUrls: ['../../template.component.css']
+  styleUrls: ['../../template.component.css'],
+  imports: [CommonModule],
+  standalone: true
 })
 export class MenusComponent implements OnInit {
   flagAdd : boolean = false;
